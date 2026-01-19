@@ -604,14 +604,7 @@ export default function Home() {
       ].map((item, i) => (
         <div
           key={i}
-          className="
-            bg-white dark:bg-[#111]
-            rounded-3xl
-            p-10
-            shadow-[0_30px_80px_rgba(0,0,0,0.08)]
-            border border-black/5 dark:border-white/10
-            relative
-          "
+          className="bg-white dark:bg-[#111] rounded-3xl p-10 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-black/5 dark:border-white/10 relative"
         >
           {/* STAR RATING */}
           <div className="flex gap-1 mb-6 text-orange-500">
