@@ -96,10 +96,52 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [dark, setDark] = useState(true);
   const [navbarVisible, setNavbarVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const horizontalServicesRef = useRef<HTMLDivElement>(null);
   const horizontalWorksRef = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
+
+  const services = [
+    {
+      title: "Brand Identity & Logo Design",
+      description: "Complete brand identity solutions including logo design, color palettes, typography, and brand guidelines that establish a strong visual foundation for your business.",
+      image: "/Images/Marathi-Wooden-Name-Plate-Rajmudra-Style.jpg"
+    },
+    {
+      title: "Digital Marketing Materials",
+      description: "Eye-catching digital assets including social media graphics, web banners, email templates, and digital advertisements optimized for various platforms and devices.",
+      image: "/Images/Hotel-Nisarg-Shravan-Special.jpg"
+    },
+    {
+      title: "Packaging & Print Design",
+      description: "Professional packaging design and print materials including product packaging, brochures, business cards, posters, and large-format prints with premium quality output.",
+      image: "/Images/3d-acrylic-letter-sign-board.jpeg"
+    }
+  ];
+
+  const works = [
+    {
+      title: "3D Acrylic Letter Sign Board",
+      description: "Custom 3D acrylic letter sign boards with LED illumination, perfect for hotels, offices, and commercial spaces. Featuring precision cutting and professional installation.",
+      image: "/Images/3d-acrylic-letter-sign-board.jpeg"
+    },
+    {
+      title: "Marathi Wooden Name Plate",
+      description: "Elegant wooden name plates with traditional Marathi calligraphy, handcrafted from premium sheesham wood with intricate detailing and natural finish.",
+      image: "/Images/Marathi-Wooden-Name-Plate-Rajmudra-Style.jpg"
+    },
+    {
+      title: "Titanium Gold Letter Design",
+      description: "Premium titanium gold letter designs with metallic finish, ideal for luxury branding and high-end commercial signage applications.",
+      image: "/Images/Titanium-Gold-Letter-With-Back..jpg"
+    },
+    {
+      title: "LED Acrylic Name Plate",
+      description: "Illuminated acrylic name plates with LED backlighting, combining modern technology with elegant design for stunning visual impact.",
+      image: "/Images/lluminate-Your-Name-in-Style-with-Beautiful-Acrylic-LED-Name-Plate-Marathi-Font-1.jpg"
+    }
+  ];
 
   /* ================= THEME ================= */
   useEffect(() => {
@@ -143,7 +185,7 @@ export default function Home() {
     });
 
     const setupHorizontal = (container: HTMLDivElement | null) => {
-      if (!container || !container.parentElement) return;
+      if (!container || !container.parentElement || window.innerWidth < 768) return;
 
       const panels = gsap.utils.toArray<HTMLElement>(container.children);
       const totalPanels = panels.length;
@@ -182,10 +224,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-black dark:text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-black dark:text-white"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
 
           <nav className="hidden md:flex flex-1 justify-center gap-8 lg:gap-16 text-sm lg:text-base font-semibold items-center">
@@ -214,6 +265,21 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/90 z-40 md:hidden flex items-center justify-center"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <div className="flex flex-col gap-8 text-white text-2xl font-semibold">
+            <a href="#story" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">About</a>
+            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Services</a>
+            <a href="#works" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Works</a>
+            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Contact</a>
+          </div>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="relative min-h-screen pt-32 px-10 flex items-center">
@@ -324,25 +390,9 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="relative h-screen overflow-hidden bg-gray-100 dark:bg-[#060b16]">
+      <section id="services" className="relative h-screen overflow-hidden bg-gray-100 dark:bg-[#060b16] hidden md:block">
         <div ref={horizontalServicesRef} className="flex h-full w-full">
-          {[
-            {
-              title: "Brand Identity & Logo Design",
-              description: "Complete brand identity solutions including logo design, color palettes, typography, and brand guidelines that establish a strong visual foundation for your business.",
-              image: "/Images/Marathi-Wooden-Name-Plate-Rajmudra-Style.jpg"
-            },
-            {
-              title: "Digital Marketing Materials",
-              description: "Eye-catching digital assets including social media graphics, web banners, email templates, and digital advertisements optimized for various platforms and devices.",
-              image: "/Images/Hotel-Nisarg-Shravan-Special.jpg"
-            },
-            {
-              title: "Packaging & Print Design",
-              description: "Professional packaging design and print materials including product packaging, brochures, business cards, posters, and large-format prints with premium quality output.",
-              image: "/Images/3d-acrylic-letter-sign-board.jpeg"
-            }
-          ].map((service, i) => (
+          {services.map((service, i) => (
             <div key={i} className="h-full flex items-center justify-center px-[7.5vw]">
   <div className="bg-white dark:bg-[#0f1629] rounded-3xl shadow-2xl flex flex-col md:flex-row items-center gap-12 p-12 w-[85vw]">
     
@@ -375,30 +425,9 @@ export default function Home() {
       </section>
 
       {/* ================= WORKS ================= */}
-      <section id="works" className="relative h-screen overflow-hidden bg-white dark:bg-[#0f0f0f]">
+      <section id="works" className="relative h-screen overflow-hidden bg-white dark:bg-[#0f0f0f] hidden md:block">
         <div ref={horizontalWorksRef} className="flex h-full w-full">
-          {[
-            {
-              title: "3D Acrylic Letter Sign Board",
-              description: "Custom 3D acrylic letter sign boards with LED illumination, perfect for hotels, offices, and commercial spaces. Featuring precision cutting and professional installation.",
-              image: "/Images/3d-acrylic-letter-sign-board.jpeg"
-            },
-            {
-              title: "Marathi Wooden Name Plate",
-              description: "Elegant wooden name plates with traditional Marathi calligraphy, handcrafted from premium sheesham wood with intricate detailing and natural finish.",
-              image: "/Images/Marathi-Wooden-Name-Plate-Rajmudra-Style.jpg"
-            },
-            {
-              title: "Titanium Gold Letter Design",
-              description: "Premium titanium gold letter designs with metallic finish, ideal for luxury branding and high-end commercial signage applications.",
-              image: "/Images/Titanium-Gold-Letter-With-Back..jpg"
-            },
-            {
-              title: "LED Acrylic Name Plate",
-              description: "Illuminated acrylic name plates with LED backlighting, combining modern technology with elegant design for stunning visual impact.",
-              image: "/Images/lluminate-Your-Name-in-Style-with-Beautiful-Acrylic-LED-Name-Plate-Marathi-Font-1.jpg"
-            }
-          ].map((work, i) => (
+          {works.map((work, i) => (
             <div key={i} className="h-full flex items-center justify-center px-[7.5vw]">
   <div className="bg-gray-100 dark:bg-[#111] rounded-3xl shadow-2xl flex flex-col md:flex-row items-center gap-12 p-12 w-[85vw]">
 
@@ -429,6 +458,63 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ================= MOBILE WORKS ================= */}
+      <section className="md:hidden py-20 px-6 bg-white dark:bg-[#0f0f0f]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-kalnia text-4xl font-semibold">Our Works</h2>
+          </div>
+          <div className="space-y-8">
+            {works.map((work, i) => (
+              <div key={i} className="bg-gray-100 dark:bg-[#111] rounded-3xl shadow-2xl p-8">
+                <Image
+                  src={work.image}
+                  alt={work.title}
+                  width={600}
+                  height={450}
+                  className="rounded-2xl object-cover w-full h-64 mb-6"
+                />
+                <h3 className="font-kalnia text-3xl font-semibold mb-4">
+                  {work.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  {work.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= MOBILE SERVICES ================= */}
+      <section className="md:hidden py-20 px-6 bg-gray-100 dark:bg-[#060b16]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-kalnia text-4xl font-semibold">Our Services</h2>
+          </div>
+          <div className="space-y-8">
+            {services.map((service, i) => (
+              <div key={i} className="bg-white dark:bg-[#0f1629] rounded-3xl shadow-2xl p-8">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={600}
+                  height={450}
+                  className="rounded-2xl object-cover w-full h-64 mb-6"
+                />
+                <h3 className="font-kalnia text-3xl font-semibold mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 {/* ================= APPEAL ================= */}
 <section className="py-40 px-6 bg-white dark:bg-[#0b0b0b]">
   <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
