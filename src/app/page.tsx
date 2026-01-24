@@ -402,7 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= MOBILE WORKS ================= */}
+      {/* ================= MOBILE WORKS =================
       <section className="md:hidden py-20 px-6 bg-white dark:bg-[#0f0f0f]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -430,7 +430,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= MOBILE SERVICES ================= */}
+      {/* ================= MOBILE SERVICES ================= 
       <section className="md:hidden py-20 px-6 bg-gray-100 dark:bg-[#060b16]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -457,7 +457,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+ */}
 {/* ================= APPEAL ================= */}
 <section className="py-40 px-6 bg-white dark:bg-[#0b0b0b]">
   <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
