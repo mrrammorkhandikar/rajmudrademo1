@@ -9,6 +9,7 @@ import { Float, OrbitControls, Center, Environment } from "@react-three/drei";
 import { SVGLoader } from "three-stdlib";
 import * as THREE from "three";
 import React from "react";
+import Navbar from "../components/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -219,67 +220,7 @@ export default function Home() {
       {!loaded && <Loader done={() => setLoaded(true)} />}
       <Cursor />
 
-      {/* ================= HEADER ================= */}
-      <header className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-transparent transition-transform duration-300 ${navbarVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-black dark:text-white"
-          >
-            {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-
-          <nav className="hidden md:flex flex-1 justify-center gap-8 lg:gap-16 text-sm lg:text-base font-semibold items-center">
-            <a href="#story" className="hover:text-orange-500 transition-colors">About</a>
-            <a href="#services" className="hover:text-orange-500 transition-colors">Services</a>
-            <a href="#works" className="hover:text-orange-500 transition-colors">Works</a>
-            <a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a>
-          </nav>
-
-          {/* Mobile Logo/Brand */}
-          <div className="md:hidden flex items-center">
-            <span className="text-sm font-bold text-orange-500">RG</span>
-          </div>
-
-          <div className="flex items-center">
-            <button
-              onClick={() => setDark(!dark)}
-              className="w-10 h-10 md:w-12 md:h-6 rounded-full bg-gray-300 dark:bg-gray-700 relative transition flex items-center justify-center md:justify-start"
-            >
-              <span
-                className={`md:absolute md:top-1 md:left-1 w-4 h-4 rounded-full bg-white transition ${dark ? "md:translate-x-6" : ""}`}
-              />
-              {/* Mobile icons */}
-              <span className="md:hidden text-xs">{dark ? "☀️" : "🌙"}</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/90 z-40 md:hidden flex items-center justify-center"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <div className="flex flex-col gap-8 text-white text-2xl font-semibold">
-            <a href="#story" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">About</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Services</a>
-            <a href="#works" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Works</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Contact</a>
-          </div>
-        </div>
-      )}
+      <Navbar />
 
       {/* HERO */}
       <section className="relative min-h-screen pt-32 px-10 flex items-center">
@@ -295,9 +236,9 @@ export default function Home() {
             <span className="text-orange-500 uppercase tracking-[0.25em] text-xs font-semibold mb-6 block">
               Graphic Design Studio
             </span>
-            <h1 className="font-kalnia text-[clamp(3rem,6vw,5.5rem)] leading-[1.05] tracking-tight reveal">
-              Design That <br />
-              <span className="text-orange-500">Commands Attention</span>
+            <h1 className="font-playfair text-[clamp(3rem,6vw,5.5rem)] leading-[1.05] tracking-tight reveal">
+              Crafting Visual <br />
+              <span className="text-orange-500">Excellence Since 2015</span>
             </h1>
             <p className="mt-10 text-[1.05rem] opacity-80 max-w-xl reveal">
               A creative powerhouse delivering brand identities, signage,
@@ -390,72 +331,74 @@ export default function Home() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="relative h-screen overflow-hidden bg-gray-100 dark:bg-[#060b16] hidden md:block">
-        <div ref={horizontalServicesRef} className="flex h-full w-full">
-          {services.map((service, i) => (
-            <div key={i} className="h-full flex items-center justify-center px-[7.5vw]">
-  <div className="bg-white dark:bg-[#0f1629] rounded-3xl shadow-2xl flex flex-col md:flex-row items-center gap-12 p-12 w-[85vw]">
-    
-    {/* IMAGE */}
-    <div className="w-full md:w-1/2">
-      <Image
-        src={service.image}
-        alt={service.title}
-        width={600}
-        height={450}
-        className="rounded-2xl object-cover w-full h-[320px]"
-      />
-    </div>
+      <section id="services" className="py-40 px-6 bg-gray-100 dark:bg-[#060b16]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <h2 className="font-kalnia text-5xl font-semibold mb-8 reveal">Our Services</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto reveal">
+              Comprehensive design solutions to elevate your brand and business
+            </p>
+          </div>
 
-    {/* CONTENT */}
-    <div className="w-full md:w-1/2 text-left">
-      <h3 className="font-kalnia text-4xl md:text-5xl font-semibold mb-6">
-        {service.title}
-      </h3>
-      <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-        {service.description}
-      </p>
-    </div>
-
-  </div>
-</div>
-
-          ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, i) => (
+              <div key={i} className="bg-white dark:bg-[#0f1629] rounded-3xl shadow-2xl p-8 reveal">
+                <div className="relative w-full h-64 mb-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="font-kalnia text-2xl font-semibold mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                <button className="bg-orange-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-orange-400 transition">
+                  Learn More
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================= WORKS ================= */}
-      <section id="works" className="relative h-screen overflow-hidden bg-white dark:bg-[#0f0f0f] hidden md:block">
-        <div ref={horizontalWorksRef} className="flex h-full w-full">
-          {works.map((work, i) => (
-            <div key={i} className="h-full flex items-center justify-center px-[7.5vw]">
-  <div className="bg-gray-100 dark:bg-[#111] rounded-3xl shadow-2xl flex flex-col md:flex-row items-center gap-12 p-12 w-[85vw]">
+      <section id="works" className="py-40 px-6 bg-white dark:bg-[#0f0f0f]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <h2 className="font-kalnia text-5xl font-semibold mb-8 reveal">Our Works</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto reveal">
+              Exceptional design projects that showcase our creativity and expertise
+            </p>
+          </div>
 
-    {/* IMAGE */}
-    <div className="w-full md:w-1/2">
-      <Image
-        src={work.image}
-        alt={work.title}
-        width={600}
-        height={450}
-        className="rounded-2xl object-cover w-full h-[320px]"
-      />
-    </div>
-
-    {/* CONTENT */}
-    <div className="w-full md:w-1/2 text-left">
-      <h3 className="font-kalnia text-4xl md:text-5xl font-semibold mb-6">
-        {work.title}
-      </h3>
-      <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-        {work.description}
-      </p>
-    </div>
-
-  </div>
-</div>
-
-          ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {works.map((work, i) => (
+              <div key={i} className="bg-gray-100 dark:bg-[#111] rounded-3xl shadow-2xl p-8 reveal">
+                <div className="relative w-full h-64 mb-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={work.image}
+                    alt={work.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="font-kalnia text-2xl font-semibold mb-4">
+                  {work.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+                  {work.description}
+                </p>
+                <button className="bg-orange-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-orange-400 transition">
+                  View Project
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
