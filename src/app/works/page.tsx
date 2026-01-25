@@ -61,10 +61,10 @@ function RGHeroLogo() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
       <div ref={logoRef} className="relative w-72 h-72 md:w-96 md:h-96">
         <Image
-          src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
+          src="/Logo/RGLOGO.png"
           alt="Rajmudra Graphics Logo"
           fill
           className="object-contain drop-shadow-[0_25px_60px_rgba(255,106,0,0.35)]"
@@ -107,97 +107,106 @@ export default function Works() {
   const works = [
     {
       id: 1,
-      title: "3D Acrylic Letter Sign Board",
-      description: "Custom 3D acrylic letter sign boards with LED illumination, perfect for hotels, offices, and commercial spaces. Featuring precision cutting and professional installation.",
-      category: "Signage",
-      image: "/works/WhatsApp Image 2026-01-19 at 18.09.14.jpeg",
+      title: "Bharka Devi Icecream Signage",
+      description: "Traditional icecream shop signage with intricate design elements and premium materials, creating a welcoming and appetizing atmosphere.",
+      category: "Traditional",
+      image: "/works/BharkaDevi.jpg",
       details: {
-        client: "Hotel Grand",
+        client: "Bharka Devi Icecream",
         year: "2024",
-        scope: "Complete signage solution including design, fabrication, and installation",
-        materials: "Premium acrylic, LED lighting, stainless steel mounting",
-        impact: "Increased brand visibility and customer recognition by 60%"
+        scope: "Complete icecream shop signage and branding system",
+        materials: "Premium wood, traditional paint, gold leaf accents",
+        impact: "Enhanced customer attraction and brand recognition"
       },
       gallery: [
-        "/works/WhatsApp Image 2026-01-19 at 18.09.14.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.28.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.47.jpeg"
+        "/works/BharkaDevi.jpg",
+        "/works/BharkaDevi2.jpg",
+        "/works/BharkaDevi3.jpg",
+        "/works/BharkaDevi4.jpg",
+        "/works/BharkaDevi5.jpg",
+        "/works/BharkaDevi6.mp4"
       ]
     },
     {
       id: 2,
-      title: "Marathi Wooden Name Plate",
-      description: "Elegant wooden name plates with traditional Marathi calligraphy, handcrafted from premium sheesham wood with intricate detailing and natural finish.",
-      category: "Traditional",
-      image: "/works/WhatsApp Image 2026-01-19 at 18.09.28.jpeg",
+      title: "Digital Nameplate Series",
+      description: "Modern digital nameplates with LED illumination and contemporary design, perfect for offices and commercial spaces.",
+      category: "Modern",
+      image: "/works/Digital Nameplates.jpg",
       details: {
-        client: "Sharma Residence",
-        year: "2023",
-        scope: "Custom wooden name plate with Marathi typography",
-        materials: "Sheesham wood, natural oil finish, hand-carved lettering",
-        impact: "Enhanced traditional aesthetic and cultural identity"
+        client: "Various Corporate Clients",
+        year: "2024",
+        scope: "Digital nameplate design and installation",
+        materials: "LED lighting, acrylic, aluminum frame",
+        impact: "Modernized office appearance with 24/7 visibility"
       },
       gallery: [
-        "/works/WhatsApp Image 2026-01-19 at 18.09.28.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.47.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.10.10.jpeg"
+        "/works/Digital Nameplates.jpg",
+        "/works/Digital Nameplates2.jpg",
+        "/works/Digital Nameplates3.jpg",
+        "/works/Digital Nameplates4.jpg",
+        "/works/Digital Nameplates5.jpg",
+        "/works/Digital Nameplate.mp4",
+        "/works/Digital Nameplate 2.mp4",
+        "/works/Digital Nameplate 3.mp4"
       ]
     },
     {
       id: 3,
-      title: "LED Acrylic Name Plate",
-      description: "Illuminated acrylic name plates with LED backlighting, combining modern technology with elegant design for stunning visual impact.",
-      category: "Modern",
-      image: "/works/WhatsApp Image 2026-01-19 at 18.09.47.jpeg",
+      title: "Printing Design Collection",
+      description: "Professional printing designs including brochures, business cards, and marketing materials with premium quality output.",
+      category: "Print & Packaging",
+      image: "/works/Printing Design.mp4",
       details: {
-        client: "Tech Solutions Inc",
-        year: "2023",
-        scope: "Modern office signage with LED illumination",
-        materials: "Clear acrylic, LED lighting, aluminum frame",
-        impact: "Modernized office appearance and improved after-hours visibility"
+        client: "Various Businesses",
+        year: "2024",
+        scope: "Complete printing design and production",
+        materials: "Premium paper stock, professional printing equipment",
+        impact: "Enhanced brand presence and marketing effectiveness"
       },
       gallery: [
-        "/works/WhatsApp Image 2026-01-19 at 18.09.47.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.10.10.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.14.jpeg"
+        "/works/Printing Design.mp4",
+        "/works/Printing Design 2.mp4",
+        "/works/Printing Design 3.mp4",
+        "/works/Printing Design 5.mp4",
+        "/works/Printing Designs 4.mp4",
+        "/works/Redium Design.mp4"
       ]
     },
     {
       id: 4,
-      title: "Corporate Signage Solutions",
-      description: "Complete corporate signage solutions including office branding, directional signs, and professional identification systems.",
-      category: "Branding",
-      image: "/works/WhatsApp Image 2026-01-19 at 18.10.10.jpeg",
+      title: "Sticker Design & Print",
+      description: "Custom sticker designs and printing services for branding, promotions, and product labeling with vibrant colors and durable materials.",
+      category: "Print & Packaging",
+      image: "/works/Stickers Designs.mp4",
       details: {
-        client: "Corporate Office",
+        client: "Various Retail & E-commerce Clients",
         year: "2024",
-        scope: "Complete office signage and branding system",
-        materials: "Premium materials, professional mounting systems",
-        impact: "Enhanced professional image and improved wayfinding"
+        scope: "Custom sticker design and large-scale printing",
+        materials: "Premium vinyl, weather-resistant adhesives",
+        impact: "Enhanced product branding and customer recognition"
       },
       gallery: [
-        "/works/WhatsApp Image 2026-01-19 at 18.10.10.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.14.jpeg",
-        "/works/WhatsApp Image 2026-01-19 at 18.09.28.jpeg"
+        "/works/Stickers Designs.mp4",
+        "/works/Stickers Designs 2.mp4",
+        "/works/Stickers Print.mp4"
       ]
     },
     {
       id: 5,
-      title: "Video Showcase",
-      description: "Professional video documentation of our completed projects showcasing the quality and craftsmanship of our work.",
-      category: "Video",
-      image: "/works/WhatsApp Video 2026-01-24 at 10.15.53.mp4",
+      title: "Swapna Purti Design",
+      description: "Specialized design work for Swapna Purti services, combining traditional elements with modern design principles.",
+      category: "Specialized",
+      image: "/works/Swapna purti 1.jpg",
       details: {
-        client: "Various Clients",
+        client: "Swapna Purti Services",
         year: "2024",
-        scope: "Video documentation and showcase of completed projects",
-        materials: "Professional video production",
-        impact: "Enhanced client presentation and portfolio展示"
+        scope: "Complete branding and design solution",
+        materials: "Premium materials, traditional design elements",
+        impact: "Enhanced service presentation and customer trust"
       },
       gallery: [
-        "/works/WhatsApp Video 2026-01-24 at 10.15.53.mp4",
-        "/works/WhatsApp Video 2026-01-24 at 10.12.03.mp4",
-        "/works/WhatsApp Video 2026-01-24 at 10.16.37.mp4"
+        "/works/Swapna purti 1.jpg"
       ]
     }
   ];
@@ -344,13 +353,14 @@ export default function Works() {
                 
                 {/* IMAGE */}
                 <div className="relative h-64 overflow-hidden">
-                  {work.category === "Video" ? (
+                  {work.image.endsWith('.mp4') ? (
                     <video
                       src={work.image}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       muted
                       loop
                       playsInline
+                      autoPlay
                     />
                   ) : (
                     <Image
@@ -507,17 +517,17 @@ export default function Works() {
       {/* FOOTER */}
       <footer className="bg-gray-100 dark:bg-black py-16 px-8 text-gray-600 dark:text-gray-500">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-center">
-          <div className="flex items-center gap-4">
-            <Image
-              src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
-              width={48}
-              height={48}
-              alt=""
-            />
-            <span className="text-gray-900 dark:text-white font-semibold">
-              Rajmudra Graphics
-            </span>
-          </div>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/Logo/RGLOGO.png"
+            width={48}
+            height={48}
+            alt=""
+          />
+          <span className="text-gray-900 dark:text-white font-semibold">
+            Rajmudra Graphics
+          </span>
+        </div>
           <div className="flex justify-center gap-6">
             {["F", "I", "L", "B"].map((s) => (
               <span

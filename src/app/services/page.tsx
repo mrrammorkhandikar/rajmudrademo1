@@ -61,10 +61,10 @@ function RGHeroLogo() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
       <div ref={logoRef} className="relative w-72 h-72 md:w-96 md:h-96">
         <Image
-          src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
+          src="/Logo/RGLOGO.png"
           alt="Rajmudra Graphics Logo"
           fill
           className="object-contain drop-shadow-[0_25px_60px_rgba(255,106,0,0.35)]"
@@ -104,6 +104,81 @@ export default function Services() {
   const lastScrollY = useRef(0);
 
   const services = [
+    {
+      title: "3D Acrylic Board",
+      description: "Custom 3D acrylic letter sign boards with LED illumination, perfect for hotels, offices, and commercial spaces. Featuring precision cutting and professional installation.",
+      detailed: "We create stunning 3D acrylic boards that add depth and dimension to your brand presence. Using premium acrylic materials and advanced fabrication techniques, our 3D boards create a premium look that enhances any space. Perfect for corporate offices, retail spaces, and hospitality venues.",
+      features: [
+        "Premium acrylic materials",
+        "LED illumination options",
+        "Custom shapes and sizes",
+        "Professional installation",
+        "Weather-resistant finishes",
+        "Custom color options"
+      ],
+      image: "/Images/3D Acrylic Board.mp4",
+      category: "Signage"
+    },
+    {
+      title: "Incut Sign Board",
+      description: "Precision incut sign boards with clean, modern design that creates a sophisticated and professional appearance.",
+      detailed: "Our incut sign boards feature precise cutting techniques that create clean, sharp edges and professional finishes. Available in various materials and finishes, these signs are perfect for corporate environments, offices, and professional spaces where a sleek, modern look is desired.",
+      features: [
+        "Precision cutting technology",
+        "Multiple material options",
+        "Custom shapes and designs",
+        "Professional mounting",
+        "Durable finishes",
+        "Custom lighting options"
+      ],
+      image: "/Images/Incut Sign Board.mp4",
+      category: "Signage"
+    },
+    {
+      title: "Laser Cutting",
+      description: "Advanced laser cutting services for precise fabrication of various materials with intricate designs and clean edges.",
+      detailed: "Our state-of-the-art laser cutting technology allows for precise fabrication of intricate designs in various materials. From acrylic to wood, metal to fabric, we can create complex patterns and shapes with exceptional accuracy. Perfect for signage, displays, and custom fabrication projects.",
+      features: [
+        "High-precision laser cutting",
+        "Multiple material compatibility",
+        "Intricate design capabilities",
+        "Fast turnaround times",
+        "Custom size options",
+        "Professional finishing"
+      ],
+      image: "/Images/Laser cutting.mp4",
+      category: "Fabrication"
+    },
+    {
+      title: "Redium Design",
+      description: "Specialized redium design services creating unique and eye-catching visual solutions for various applications.",
+      detailed: "Our redium design services combine creativity with technical expertise to create unique visual solutions. Whether for signage, displays, or decorative elements, our redium designs add a distinctive touch that sets your project apart from the competition.",
+      features: [
+        "Custom redium designs",
+        "Unique visual solutions",
+        "Multiple application options",
+        "Professional fabrication",
+        "Custom finishing",
+        "Design consultation"
+      ],
+      image: "/Images/Redium Design.mp4",
+      category: "Design"
+    },
+    {
+      title: "Vinyl Sticker Print",
+      description: "High-quality vinyl sticker printing with durable materials and vibrant colors for indoor and outdoor use.",
+      detailed: "We offer premium vinyl sticker printing services using high-quality materials that ensure durability and vibrant colors. Perfect for branding, promotions, product labeling, and decorative applications. Our vinyl stickers are weather-resistant and available in various finishes and sizes.",
+      features: [
+        "Premium vinyl materials",
+        "Vibrant color printing",
+        "Weather-resistant options",
+        "Custom shapes and sizes",
+        "Indoor and outdoor use",
+        "Fast production times"
+      ],
+      image: "/Images/Vinyl Sticker print.mp4",
+      category: "Print & Packaging"
+    },
     {
       title: "Brand Identity & Logo Design",
       description: "Complete brand identity solutions including logo design, color palettes, typography, and brand guidelines that establish a strong visual foundation for your business.",
@@ -356,12 +431,23 @@ export default function Services() {
                     </div>
 
                     <div className="relative w-full h-48 rounded-xl overflow-hidden">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-cover"
-                      />
+                      {service.image.endsWith('.mp4') ? (
+                    <video
+                      src={service.image}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                    />
+                  ) : (
+                        <Image
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                        />
+                      )}
                     </div>
                   </div>
                 )}
@@ -375,12 +461,24 @@ export default function Services() {
               {services.map((service, i) => (
                 <div key={i} className="bg-white dark:bg-[#0f1629] rounded-3xl shadow-2xl p-8 reveal">
                   <div className="relative w-full h-64 mb-6 rounded-2xl overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
+                    {service.image.endsWith('.mp4') ? (
+                      <video
+                        src={service.image}
+                        className="w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                        autoPlay
+                        
+                      />
+                    ) : (
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
                   </div>
                   <span className="inline-block bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
                     {service.category}
@@ -570,17 +668,17 @@ export default function Services() {
       {/* FOOTER */}
       <footer className="bg-gray-100 dark:bg-black py-16 px-8 text-gray-600 dark:text-gray-500">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-center">
-          <div className="flex items-center gap-4">
-            <Image
-              src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
-              width={48}
-              height={48}
-              alt=""
-            />
-            <span className="text-gray-900 dark:text-white font-semibold">
-              Rajmudra Graphics
-            </span>
-          </div>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/Logo/RGLOGO.png"
+            width={48}
+            height={48}
+            alt=""
+          />
+          <span className="text-gray-900 dark:text-white font-semibold">
+            Rajmudra Graphics
+          </span>
+        </div>
           <div className="flex justify-center gap-6">
             {["F", "I", "L", "B"].map((s) => (
               <span

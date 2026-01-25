@@ -61,10 +61,10 @@ function RGHeroLogo() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full h-full flex items-center justify-center">
+      <div ref={containerRef} className="w-full h-full flex items-center justify-center">
       <div ref={logoRef} className="relative w-72 h-72 md:w-96 md:h-96">
         <Image
-          src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
+          src="/Logo/RGLOGO.png"
           alt="Rajmudra Graphics Logo"
           fill
           className="object-contain drop-shadow-[0_25px_60px_rgba(255,106,0,0.35)]"
@@ -446,17 +446,17 @@ export default function About() {
       {/* FOOTER */}
       <footer className="bg-gray-100 dark:bg-black py-16 px-8 text-gray-600 dark:text-gray-500">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 items-center">
-          <div className="flex items-center gap-4">
-            <Image
-              src="/Logo/WhatsApp_Image_2026-01-19_at_13.45.28-removebg-preview.png"
-              width={48}
-              height={48}
-              alt=""
-            />
-            <span className="text-gray-900 dark:text-white font-semibold">
-              Rajmudra Graphics
-            </span>
-          </div>
+        <div className="flex items-center gap-4">
+          <Image
+            src="/Logo/RGLOGO.png"
+            width={48}
+            height={48}
+            alt=""
+          />
+          <span className="text-gray-900 dark:text-white font-semibold">
+            Rajmudra Graphics
+          </span>
+        </div>
           <div className="flex justify-center gap-6">
             {["F", "I", "L", "B"].map((s) => (
               <span
